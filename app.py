@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
 from PIL import Image
 import numpy as np
-import pickle
+from keras.models import load_model
 
 app = Flask(__name__)
 
-# Chargez le modèle
-model = pickle.load(open('model_classification_images.pkl', 'rb'))
+# Chargez le modèle avec Keras
+model = load_model('model_classification_images.pkl')
 
 @app.route('/')
 def index():
