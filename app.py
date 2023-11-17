@@ -6,7 +6,7 @@ from keras.models import load_model
 app = Flask(__name__)
 
 # Chargez le modèle avec Keras
-model = load_model('model_classification_images.pkl')
+model = pickle.load(open('model_classification_images.pkl', 'rb'))
 
 @app.route('/')
 def index():
