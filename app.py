@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
 from PIL import Image
 import numpy as np
-import pickle
+import tensorflow as tf
 
 app = Flask(__name__)
 
 # Chargez le modèle
-model = pickle.load(open('model_classification_images.pkl', 'rb'))
+model = tf.keras.models.load_model('model_classification_images.h5')
 
 @app.route('/')
 def index():
